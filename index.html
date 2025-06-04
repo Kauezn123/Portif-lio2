@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kauê - Desenvolvedor Web, Designer Gráfico & Editor de Vídeos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Script de Compatibilidade -->
+    <script>
+        // Detectar compatibilidade e adicionar fallbacks
+        (function() {
+            'use strict';
+            
+            // Detectar se é um navegador mais antigo
+            var isOldBrowser = !window.IntersectionObserver || !window.requestAnimationFrame || !window.localStorage;
+            
+            if (isOldBrowser) {
+                document.documentElement.classList.add('no-js');
+                console.log('⚠️ Navegador antigo detectado, aplicando fallbacks');
+            }
+            
+            // Polyfill para requestAnimationFrame
+            if (!window.requestAnimationFrame) {
+                window.requestAnimationFrame = function(callback) {
+                    return setTimeout(callback, 16);
+                };
+            }
+            
+            // Polyfill para performance.now
+            if (!window.performance || !window.performance.now) {
+                window.performance = window.performance || {};
+                window.performance.now = function() {
+                    return Date.now();
+                };
+            }
+            
+            // Detectar se localStorage está disponível
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+            } catch (e) {
+                // Criar um localStorage fake
+                window.localStorage = {
+                    getItem: function() { return null; },
+                    setItem: function() {},
+                    removeItem: function() {}
+                };
+                console.log('⚠️ localStorage não disponível, usando fallback');
+            }
+            
+            // Detectar se o site está sendo carregado via HTTPS
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+                console.log('⚠️ Site não está em HTTPS, algumas funcionalidades podem ser limitadas');
+            }
+            
+            // Adicionar classe para indicar que JavaScript está funcionando
+            document.documentElement.classList.remove('no-js');
+            document.documentElement.classList.add('js');
+            
+            console.log('✅ Script de compatibilidade carregado');
+        })();
+    </script>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Kauê</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#pricing" class="nav-link">Serviços</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Background animado -->
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="floating-grid"></div>
+        </div>
+        
+        <!-- Partículas flutuantes -->
+        <div class="hero-particles">
+            <div class="particle particle-1"><i class="fas fa-code"></i></div>
+            <div class="particle particle-2"><i class="fas fa-palette"></i></div>
+            <div class="particle particle-3"><i class="fas fa-video"></i></div>
+            <div class="particle particle-4"><i class="fas fa-laptop-code"></i></div>
+            <div class="particle particle-5"><i class="fas fa-paint-brush"></i></div>
+            <div class="particle particle-6"><i class="fas fa-play-circle"></i></div>
+            <div class="particle particle-7"><i class="fas fa-rocket"></i></div>
+            <div class="particle particle-8"><i class="fas fa-star"></i></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Saudação animada -->
+                <div class="hero-greeting">
+                    <span class="greeting-text">👋 Olá, mundo!</span>
+                </div>
+                
+                <!-- Título principal com efeito de digitação -->
+                <h1 class="hero-title">
+                    <span class="title-line">Eu sou</span>
+                    <span class="name-highlight">
+                        <span class="name-text">Kauê</span>
+                        <div class="name-underline"></div>
+                    </span>
+                </h1>
+                
+                <!-- Subtítulo com animação de fade -->
+                <div class="hero-roles">
+                    <h2 class="hero-subtitle">
+                        <span class="role-text active">Desenvolvedor Web</span>
+                        <span class="role-text">Designer Gráfico</span>
+                        <span class="role-text">Editor de Vídeos</span>
+                    </h2>
+                </div>
+                
+                <!-- Descrição com efeito de aparição -->
+                <p class="hero-description">
+                    Transformo <span class="highlight-word">ideias</span> em 
+                    <span class="highlight-word">experiências digitais</span> incríveis. 
+                    Especializado em desenvolvimento front-end moderno, design gráfico criativo 
+                    e edição de vídeos profissional.
+                </p>
+                
+                <!-- Botões com hover avançado -->
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary btn-glow">
+                        <span class="btn-text">Ver Portfólio</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary btn-outline">
+                        <span class="btn-text">Vamos Conversar</span>
+                        <i class="fas fa-arrow-right btn-icon"></i>
+                    </a>
+                </div>
+                
+                <!-- Indicadores sociais -->
+                <div class="hero-social">
+                    <span class="social-label">Me encontre em:</span>
+                    <div class="social-links">
+                        <a href="#" class="social-link" data-platform="github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" data-platform="linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kaahmateus__/" class="social-link" data-platform="instagram" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5511963755370" class="social-link" data-platform="whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lado direito com avatar modernizado -->
+            <div class="hero-visual">
+                <div class="avatar-container">
+                    <!-- Anéis decorativos animados -->
+                    <div class="decoration-rings">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                    </div>
+                    
+                    <!-- Avatar com efeitos -->
+                    <div class="avatar-wrapper">
+                        <img src="Foto.jpg" alt="Kauê" class="hero-avatar">
+                        <div class="avatar-glow"></div>
+                        <div class="avatar-border"></div>
+                    </div>
+                    
+                    <!-- Cards flutuantes com habilidades -->
+                    <div class="floating-cards">
+                        <div class="skill-card-float card-1">
+                            <i class="fas fa-code"></i>
+                            <span>Frontend</span>
+                        </div>
+                        <div class="skill-card-float card-2">
+                            <i class="fas fa-palette"></i>
+                            <span>Design</span>
+                        </div>
+                        <div class="skill-card-float card-3">
+                            <i class="fas fa-video"></i>
+                            <span>Vídeo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicador de scroll modernizado -->
+        <div class="scroll-indicator">
+            <div class="scroll-text">Role para descobrir mais</div>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <p class="about-subtitle">Criador visual completo: desenvolvimento, design e vídeo em um só profissional</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Quem sou eu?</h3>
+                    <p>
+                        Sou um profissional multidisciplinar apaixonado por criar experiências visuais completas. 
+                        Com expertise em desenvolvimento front-end, design gráfico e edição de vídeos, ofereço soluções 
+                        integradas que cobrem todo o espectro da comunicação digital moderna.
+                    </p>
+                    <p>
+                        Trabalho com as mais modernas tecnologias e ferramentas criativas do mercado, sempre 
+                        buscando a harmonia perfeita entre funcionalidade, estética e experiência do usuário.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="Foto.jpg" alt="Sobre Kauê" class="about-avatar">
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>150+</h3>
+                    <p>Projetos Concluídos</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>3+</h3>
+                    <p>Anos de Experiência</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>100%</h3>
+                    <p>Clientes Satisfeitos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="skills-header">
+                <h2 class="section-title">Minhas Habilidades</h2>
+                <p class="skills-subtitle">Domínio técnico e criativo em tecnologias modernas</p>
+                <div class="skills-intro">
+                    <p>Combinando criatividade e tecnologia para criar experiências digitais únicas e impactantes</p>
+                </div>
+            </div>
+
+            <!-- Estatísticas de Habilidades -->
+            <div class="skills-stats-overview">
+                <div class="stat-overview-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>15+</h4>
+                        <p>Tecnologias Dominadas</p>
+                    </div>
+                </div>
+                <div class="stat-overview-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>50+</h4>
+                        <p>Projetos Concluídos</p>
+                    </div>
+                </div>
+                <div class="stat-overview-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>1000+</h4>
+                        <p>Horas de Experiência</p>
+                    </div>
+                </div>
+                <div class="stat-overview-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>3+</h4>
+                        <p>Anos de Experiência</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-showcase">
+                <!-- Desenvolvimento Front-End -->
+                <div class="skills-category" data-category="web">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Desenvolvimento Front-End</h3>
+                        <p>Criação de experiências digitais modernas e responsivas</p>
+                        <div class="category-badge">
+                            <span>Especialidade Principal</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card featured" data-skill="html">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>HTML5</h4>
+                                <span class="skill-level expert">Expert</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="95">
+                                    <span class="progress-text">95%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>3+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card featured" data-skill="css">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>CSS3 & SASS</h4>
+                                <span class="skill-level expert">Expert</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="90">
+                                    <span class="progress-text">90%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>3+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card" data-skill="js">
+                            <div class="skill-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>JavaScript ES6+</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="85">
+                                    <span class="progress-text">85%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card" data-skill="react">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>React & Next.js</h4>
+                                <span class="skill-level intermediate">Intermediário</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="80">
+                                    <span class="progress-text">80%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>1+ ano</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card" data-skill="bootstrap">
+                            <div class="skill-icon">
+                                <i class="fab fa-bootstrap"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Bootstrap & Tailwind</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="88">
+                                    <span class="progress-text">88%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card" data-skill="git">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Git & GitHub</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="82">
+                                    <span class="progress-text">82%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design Gráfico -->
+                <div class="skills-category" data-category="design">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Design Gráfico & UI/UX</h3>
+                        <p>Criação visual impactante e experiências de usuário intuitivas</p>
+                        <div class="category-badge">
+                            <span>Criatividade & Inovação</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card featured" data-skill="photoshop">
+                            <div class="skill-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Adobe Photoshop</h4>
+                                <span class="skill-level expert">Expert</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="95">
+                                    <span class="progress-text">95%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>4+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card featured" data-skill="illustrator">
+                            <div class="skill-icon">
+                                <i class="fas fa-vector-square"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Adobe Illustrator</h4>
+                                <span class="skill-level expert">Expert</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="90">
+                                    <span class="progress-text">90%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>3+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card" data-skill="figma">
+                            <div class="skill-icon">
+                                <i class="fas fa-bezier-curve"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Figma & Adobe XD</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="88">
+                                    <span class="progress-text">88%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card" data-skill="canva">
+                            <div class="skill-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Canva Pro</h4>
+                                <span class="skill-level expert">Expert</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="92">
+                                    <span class="progress-text">92%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>3+ anos</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card" data-skill="indesign">
+                            <div class="skill-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Adobe InDesign</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="85">
+                                    <span class="progress-text">85%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card" data-skill="branding">
+                            <div class="skill-icon">
+                                <i class="fas fa-trademark"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Branding & Identidade</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="87">
+                                    <span class="progress-text">87%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Edição de Vídeos -->
+                <div class="skills-category" data-category="video">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Edição de Vídeos & Motion Graphics</h3>
+                        <p>Produção audiovisual profissional e animações impactantes</p>
+                        <div class="category-badge">
+                            <span>Storytelling Visual</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card featured" data-skill="premiere">
+                            <div class="skill-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Adobe Premiere Pro</h4>
+                                <span class="skill-level expert">Expert</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="90">
+                                    <span class="progress-text">90%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>3+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card" data-skill="aftereffects">
+                            <div class="skill-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>After Effects</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="85">
+                                    <span class="progress-text">85%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card featured" data-skill="capcut">
+                            <div class="skill-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>CapCut Pro</h4>
+                                <span class="skill-level expert">Expert</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="95">
+                                    <span class="progress-text">95%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>3+ anos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card" data-skill="davinci">
+                            <div class="skill-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>DaVinci Resolve</h4>
+                                <span class="skill-level intermediate">Intermediário</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="80">
+                                    <span class="progress-text">80%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>1+ ano</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card" data-skill="audition">
+                            <div class="skill-icon">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Adobe Audition</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="83">
+                                    <span class="progress-text">83%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card" data-skill="motion">
+                            <div class="skill-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Motion Graphics</h4>
+                                <span class="skill-level advanced">Avançado</span>
+                            </div>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress" data-progress="88">
+                                    <span class="progress-text">88%</span>
+                                </div>
+                            </div>
+                            <div class="skill-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2+ anos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificações e Conquistas -->
+            <div class="skills-achievements">
+                <h3>Certificações & Conquistas</h3>
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Certificação Adobe</h4>
+                            <p>Adobe Certified Expert em Photoshop e Premiere Pro</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Projetos Premiados</h4>
+                            <p>Reconhecimento em concursos de design e desenvolvimento</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Formação Contínua</h4>
+                            <p>Sempre atualizando conhecimentos em novas tecnologias</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Clientes Satisfeitos</h4>
+                            <p>100% de aprovação em todos os projetos entregues</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA da Seção -->
+            <div class="skills-cta">
+                <div class="cta-content">
+                    <h3>Pronto para Transformar Suas Ideias em Realidade?</h3>
+                    <p>Vamos conversar sobre como posso ajudar você a alcançar seus objetivos digitais</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary btn-glow">
+                            <i class="fas fa-rocket"></i>
+                            <span>Iniciar Projeto</span>
+                        </a>
+                        <a href="#portfolio" class="btn btn-secondary btn-outline">
+                            <i class="fas fa-eye"></i>
+                            <span>Ver Portfólio</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="portfolio-header">
+                <h2 class="section-title">Meu Portfólio</h2>
+                <p class="portfolio-subtitle">Projetos que demonstram minha paixão por criar experiências digitais excepcionais</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>Todos os Projetos</span>
+                </button>
+                <button class="filter-btn" data-filter="web">
+                    <i class="fas fa-code"></i>
+                    <span>Desenvolvimento Front-End</span>
+                </button>
+                <button class="filter-btn" data-filter="design">
+                    <i class="fas fa-palette"></i>
+                    <span>Design Gráfico</span>
+                </button>
+                <button class="filter-btn" data-filter="video">
+                    <i class="fas fa-video"></i>
+                    <span>Edição de Vídeos</span>
+                </button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-message">
+                    <div class="message-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Portfólio em Atualização</h3>
+                    <p>Os vídeos, sites e artes ainda estão em processo de upload.</p>
+                    <p>Para ter acesso a vídeos, artes e sites demonstrativos, entre em contato comigo!</p>
+                    <div class="message-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            <span>Entre em Contato</span>
+                        </a>
+                        <a href="https://wa.me/5511963755370" class="btn btn-secondary">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços e Preços -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <h2 class="section-title">Meus Serviços</h2>
+                <p class="section-subtitle">Soluções digitais completas com qualidade premium e preços transparentes</p>
+            </div>
+
+            <!-- PROMOÇÃO ESPECIAL -->
+            <div class="promo-banner">
+                <div class="promo-content">
+                    <div class="promo-header">
+                        <div class="promo-badge">
+                            <i class="fas fa-fire"></i>
+                            OFERTA ESPECIAL
+                        </div>
+                        <h3>🚀 Super Pacote de Bônus para Criação de Sites!</h3>
+                        <p class="promo-subtitle">Válido SOMENTE para projetos iniciados este mês</p>
+                    </div>
+
+                    <div class="countdown-container">
+                        <div class="countdown-header">
+                            <i class="fas fa-clock"></i>
+                            <span>Esta oferta expira em:</span>
+                        </div>
+                        <div class="countdown-timer" id="countdown-timer">
+                            <div class="time-unit hours">
+                                <span class="time-value">01</span>
+                                <span class="time-label">HORAS</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-unit minutes">
+                                <span class="time-value">30</span>
+                                <span class="time-label">MIN</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-unit seconds">
+                                <span class="time-value">00</span>
+                                <span class="time-label">SEG</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promo-benefits">
+                        <h4>🎁 O que você ganha GRÁTIS:</h4>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-server"></i>
+                                <div class="benefit-content">
+                                    <strong>3 Meses de Hospedagem GRÁTIS!</strong>
+                                    <span>Valor: R$ 80</span>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-globe"></i>
+                                <div class="benefit-content">
+                                    <strong>1 Ano de Domínio GRÁTIS!</strong>
+                                    <span>Valor: R$ 50</span>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-tools"></i>
+                                <div class="benefit-content">
+                                    <strong>3 Meses de Manutenção Técnica GRÁTIS!</strong>
+                                    <span>Valor: R$ 500</span>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-headset"></i>
+                                <div class="benefit-content">
+                                    <strong>3 Meses de Suporte para Alterações GRÁTIS!</strong>
+                                    <span>Valor: R$ 600</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="promo-total">
+                            <div class="total-savings">
+                                <span class="savings-label">Você economiza:</span>
+                                <span class="savings-value">R$ 1.230</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="promo-actions">
+                        <button class="btn-promo primary" id="claim-promo">
+                            <i class="fas fa-rocket"></i>
+                            QUERO APROVEITAR ESTA OFERTA!
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cards de Serviços -->
+            <div class="pricing-content">
+                <div class="pricing-card featured">
+                    <div class="card-badge">Mais Popular</div>
+                    <div class="pricing-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Desenvolvimento Front-End</h3>
+                    <p>Sites responsivos, aplicações web e e-commerce personalizados com tecnologias modernas.</p>
+                    
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Design responsivo premium</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>SEO otimizado avançado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Suporte técnico 30 dias</span>
+                        </div>
+                        <div class="feature-item special-offer">
+                            <i class="fas fa-gift"></i>
+                            <span>+ BÔNUS ESPECIAL ACIMA! 🎁</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-price">
+                        <span class="price-value">R$ 500 - R$ 5.000</span>
+                        <span class="price-period">/projeto</span>
+                    </div>
+                    
+                    <div class="pricing-delivery">
+                        <i class="fas fa-clock"></i>
+                        <span>Entrega em 7-14 dias</span>
+                    </div>
+                    
+                    <button class="btn-service available">Disponível</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Gráfico</h3>
+                    <p>Identidade visual completa, materiais gráficos e design para todas as mídias digitais.</p>
+                    
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Criação de logotipos únicos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Identidade visual completa</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>3 revisões incluídas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-price">
+                        <span class="price-value">R$ 50 - R$ 1.000</span>
+                        <span class="price-period">/projeto</span>
+                    </div>
+                    
+                    <div class="pricing-delivery">
+                        <i class="fas fa-clock"></i>
+                        <span>Entrega em 3-7 dias</span>
+                    </div>
+                    
+                    <button class="btn-service available">Disponível</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Edição de Vídeos</h3>
+                    <p>Edição profissional para conteúdo promocional, educativo e corporativo de alta qualidade.</p>
+                    
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Edição profissional 4K</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Motion graphics animados</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Correção de cor avançada</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-price">
+                        <span class="price-value">R$ 100 - R$ 3.000</span>
+                        <span class="price-period">/projeto</span>
+                    </div>
+                    
+                    <div class="pricing-delivery">
+                        <i class="fas fa-clock"></i>
+                        <span>Entrega em 2-5 dias</span>
+                    </div>
+                    
+                    <button class="btn-service available">Disponível</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="faq-header">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="faq-subtitle">Respostas claras e detalhadas para suas principais dúvidas sobre meus serviços profissionais</p>
+            </div>
+
+            <!-- Estatísticas FAQ -->
+            <div class="faq-stats">
+                <div class="faq-stat">
+                    <div class="faq-stat-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h4>50+</h4>
+                    <p>Perguntas Respondidas</p>
+                </div>
+                <div class="faq-stat">
+                    <div class="faq-stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>200+</h4>
+                    <p>Clientes Atendidos</p>
+                </div>
+                <div class="faq-stat">
+                    <div class="faq-stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>24h</h4>
+                    <p>Tempo de Resposta</p>
+                </div>
+                <div class="faq-stat">
+                    <div class="faq-stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>98%</h4>
+                    <p>Satisfação dos Clientes</p>
+                </div>
+            </div>
+
+            <!-- Categorias de Filtro -->
+            <div class="faq-categories">
+                <button class="faq-category active" data-category="all">
+                    <i class="fas fa-th-large"></i>
+                    <span>Todas</span>
+                </button>
+                <button class="faq-category" data-category="geral">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Geral</span>
+                </button>
+                <button class="faq-category" data-category="web">
+                    <i class="fas fa-code"></i>
+                    <span>Desenvolvimento</span>
+                </button>
+                <button class="faq-category" data-category="design">
+                    <i class="fas fa-palette"></i>
+                    <span>Design</span>
+                </button>
+                <button class="faq-category" data-category="video">
+                    <i class="fas fa-video"></i>
+                    <span>Vídeo</span>
+                </button>
+                <button class="faq-category" data-category="preco">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Preços</span>
+                </button>
+            </div>
+
+            <!-- Grid Principal de Perguntas -->
+            <div class="faq-grid">
+                <!-- Pergunta em Destaque -->
+                <div class="faq-item featured" data-category="geral">
+                    <div class="faq-question">
+                        <h4>🚀 Qual é o diferencial dos seus serviços?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ofereço uma <strong>combinação única</strong> de desenvolvimento front-end, design gráfico e edição de vídeos em um só profissional. Isso garante:</p>
+                        <ul>
+                            <li><strong>Consistência visual</strong> em todos os materiais</li>
+                            <li><strong>Comunicação eficiente</strong> - um único ponto de contato</li>
+                            <li><strong>Economia de tempo e recursos</strong> - sem intermediários</li>
+                            <li><strong>Visão integrada</strong> do seu projeto</li>
+                            <li><strong>Preços mais competitivos</strong> que contratar separadamente</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Perguntas Principais -->
+                <div class="faq-item" data-category="geral">
+                    <div class="faq-question">
+                        <h4>⏱️ Qual é o prazo médio de entrega dos projetos?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Os prazos são estabelecidos conforme a complexidade e urgência:</p>
+                        <ul>
+                            <li><strong>Landing Pages:</strong> 3-5 dias úteis</li>
+                            <li><strong>Sites Institucionais:</strong> 1-2 semanas</li>
+                            <li><strong>E-commerce Básico:</strong> 2-3 semanas</li>
+                            <li><strong>Design Gráfico:</strong> 2-7 dias úteis</li>
+                            <li><strong>Edição de Vídeos:</strong> 1-5 dias úteis</li>
+                            <li><strong>Projetos Urgentes:</strong> Taxa adicional de 50%</li>
+                        </ul>
+                        <p><strong>Nota:</strong> Prazos podem ser reduzidos mediante disponibilidade e taxa de urgência.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="geral">
+                    <div class="faq-question">
+                        <h4>🛠️ Que tipo de suporte é oferecido após a entrega?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ofereço <strong>suporte completo</strong> pós-entrega para garantir sua satisfação:</p>
+                        <ul>
+                            <li><strong>30 dias de suporte gratuito</strong> para correções</li>
+                            <li><strong>Ajustes menores incluídos</strong> no período</li>
+                            <li><strong>Treinamento básico</strong> de uso e administração</li>
+                            <li><strong>Suporte via WhatsApp</strong> durante horário comercial</li>
+                            <li><strong>Documentação completa</strong> do projeto</li>
+                            <li><strong>Backup dos arquivos</strong> por 1 ano</li>
+                        </ul>
+                        <p><strong>Suporte estendido:</strong> Planos mensais a partir de R$ 150/mês.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="web">
+                    <div class="faq-question">
+                        <h4>📱 Os sites são responsivos e otimizados para mobile?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Sim, 100%!</strong> Todos os sites são desenvolvidos com abordagem <strong>mobile-first</strong>:</p>
+                        <ul>
+                            <li><strong>Design responsivo</strong> para todos os dispositivos</li>
+                            <li><strong>Otimização de velocidade</strong> para mobile</li>
+                            <li><strong>Testes em dispositivos reais</strong> antes da entrega</li>
+                            <li><strong>Interface touch-friendly</strong> para melhor usabilidade</li>
+                            <li><strong>Compatibilidade</strong> com todos os navegadores</li>
+                        </ul>
+                        <p><strong>Garantia:</strong> Se não funcionar perfeitamente no mobile, corrijo gratuitamente!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="web">
+                    <div class="faq-question">
+                        <h4>🔍 Os sites são otimizados para SEO?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Absolutamente!</strong> SEO é parte fundamental de todos os meus projetos:</p>
+                        <ul>
+                            <li><strong>Estrutura HTML semântica</strong> otimizada</li>
+                            <li><strong>Meta tags personalizadas</strong> para cada página</li>
+                            <li><strong>Velocidade de carregamento</strong> otimizada</li>
+                            <li><strong>URLs amigáveis</strong> e estruturadas</li>
+                            <li><strong>Schema markup</strong> quando aplicável</li>
+                            <li><strong>Sitemap XML</strong> e robots.txt</li>
+                            <li><strong>Integração com Google Analytics</strong> e Search Console</li>
+                        </ul>
+                        <p><strong>Resultado:</strong> Sites prontos para ranquear bem no Google desde o primeiro dia!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="preco">
+                    <div class="faq-question">
+                        <h4>💰 Como funciona o processo de pagamento?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Processo <strong>flexível e seguro</strong> para sua comodidade:</p>
+                        <ul>
+                            <li><strong>50% de entrada:</strong> Para iniciar o projeto</li>
+                            <li><strong>50% na entrega:</strong> Após aprovação final</li>
+                            <li><strong>PIX:</strong> Desconto de 5% no valor total</li>
+                            <li><strong>Cartão de crédito:</strong> Parcelamento em até 12x</li>
+                            <li><strong>Transferência bancária:</strong> Sem taxas adicionais</li>
+                            <li><strong>Projetos grandes:</strong> Parcelamento personalizado</li>
+                        </ul>
+                        <p><strong>Segurança:</strong> Nota fiscal emitida para todos os serviços + contrato detalhado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Ver Mais -->
+            <div class="faq-show-more">
+                <button class="btn-show-more" id="show-more-faq">
+                    <span class="btn-text">Ver mais perguntas</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <small class="show-more-info">Mais 12 perguntas detalhadas disponíveis</small>
+            </div>
+
+            <!-- Perguntas Adicionais -->
+            <div class="faq-additional" id="additional-questions">
+                <div class="faq-item additional-item" data-category="design">
+                    <div class="faq-question">
+                        <h4>🎨 Que tipos de design gráfico você cria?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Trabalho com <strong>design completo</strong> para sua marca:</p>
+                        <ul>
+                            <li><strong>Identidade Visual:</strong> Logotipos, paleta de cores, tipografia</li>
+                            <li><strong>Material Impresso:</strong> Cartões, folders, banners, catálogos</li>
+                            <li><strong>Redes Sociais:</strong> Posts, stories, capas, templates</li>
+                            <li><strong>Material Digital:</strong> E-books, apresentações, infográficos</li>
+                            <li><strong>Embalagens:</strong> Design para produtos físicos</li>
+                            <li><strong>Sinalização:</strong> Placas, adesivos, displays</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="design">
+                    <div class="faq-question">
+                        <h4>🔄 Quantas revisões estão incluídas no projeto?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sistema de revisões <strong>justo e transparente</strong>:</p>
+                        <ul>
+                            <li><strong>Logotipos:</strong> 3 revisões incluídas</li>
+                            <li><strong>Identidade Visual Completa:</strong> 5 revisões incluídas</li>
+                            <li><strong>Material Gráfico:</strong> 2 revisões incluídas</li>
+                            <li><strong>Sites:</strong> 3 revisões por seção</li>
+                            <li><strong>Vídeos:</strong> 2 revisões incluídas</li>
+                        </ul>
+                        <p><strong>Revisões extras:</strong> R$ 50-150 cada, dependendo da complexidade.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="video">
+                    <div class="faq-question">
+                        <h4>🎬 Que tipos de vídeo você edita?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Edição profissional para <strong>diversos formatos</strong>:</p>
+                        <ul>
+                            <li><strong>Vídeos Promocionais:</strong> Para empresas e produtos</li>
+                            <li><strong>Conteúdo para Redes Sociais:</strong> Instagram, TikTok, YouTube</li>
+                            <li><strong>Vídeos Corporativos:</strong> Apresentações e treinamentos</li>
+                            <li><strong>Vlogs e Conteúdo Pessoal:</strong> Edição criativa e dinâmica</li>
+                            <li><strong>Motion Graphics:</strong> Animações e efeitos especiais</li>
+                            <li><strong>Vídeos Explicativos:</strong> Tutoriais e demonstrações</li>
+                            <li><strong>Eventos:</strong> Casamentos, formaturas, corporativos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="video">
+                    <div class="faq-question">
+                        <h4>📹 Em que formatos você entrega os vídeos?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Entrego nos <strong>formatos mais utilizados</strong> do mercado:</p>
+                        <ul>
+                            <li><strong>MP4 (H.264):</strong> Formato universal para web e redes sociais</li>
+                            <li><strong>MOV:</strong> Alta qualidade para apresentações profissionais</li>
+                            <li><strong>AVI:</strong> Compatibilidade com sistemas mais antigos</li>
+                            <li><strong>Formatos Específicos:</strong> Conforme necessidade da plataforma</li>
+                            <li><strong>Múltiplas Resoluções:</strong> 1080p, 4K, formatos verticais</li>
+                            <li><strong>Versões Otimizadas:</strong> Para cada rede social</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="geral">
+                    <div class="faq-question">
+                        <h4>📋 É necessário contrato para todos os projetos?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Sim, sempre!</strong> Trabalho com contratos para <strong>segurança mútua</strong>:</p>
+                        <ul>
+                            <li><strong>Projetos até R$ 1.000:</strong> Contrato simplificado via WhatsApp</li>
+                            <li><strong>Projetos acima de R$ 1.000:</strong> Contrato formal detalhado</li>
+                            <li><strong>Proteção Legal:</strong> Para ambas as partes</li>
+                            <li><strong>Escopo Definido:</strong> Evita mal-entendidos</li>
+                            <li><strong>Prazos Estabelecidos:</strong> Compromisso com entregas</li>
+                            <li><strong>Direitos Autorais:</strong> Transferência clara após pagamento</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="web">
+                    <div class="faq-question">
+                        <h4>🔒 Como funciona a hospedagem e domínio?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ofereço <strong>soluções completas</strong> de hospedagem:</p>
+                        <ul>
+                            <li><strong>Registro de Domínio:</strong> .com.br, .com, .net (custo à parte)</li>
+                            <li><strong>Hospedagem Compartilhada:</strong> A partir de R$ 15/mês</li>
+                            <li><strong>Hospedagem VPS:</strong> Para sites com mais tráfego</li>
+                            <li><strong>SSL Gratuito:</strong> Certificado de segurança incluído</li>
+                            <li><strong>Backup Automático:</strong> Segurança dos seus dados</li>
+                            <li><strong>Suporte Técnico:</strong> Resolvo problemas de hospedagem</li>
+                        </ul>
+                        <p><strong>Opção:</strong> Posso trabalhar com sua hospedagem atual também!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="preco">
+                    <div class="faq-question">
+                        <h4>💵 Qual é a faixa de preços dos seus serviços?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Preços <strong>competitivos e justos</strong> para cada tipo de projeto:</p>
+                        <ul>
+                            <li><strong>Landing Pages:</strong> R$ 800 - R$ 1.500</li>
+                            <li><strong>Sites Institucionais:</strong> R$ 1.500 - R$ 4.000</li>
+                            <li><strong>E-commerce:</strong> R$ 3.000 - R$ 8.000</li>
+                            <li><strong>Logotipos:</strong> R$ 300 - R$ 800</li>
+                            <li><strong>Identidade Visual:</strong> R$ 800 - R$ 2.000</li>
+                            <li><strong>Edição de Vídeos:</strong> R$ 200 - R$ 1.000</li>
+                        </ul>
+                        <p><strong>Orçamento gratuito:</strong> Cada projeto é único, solicite seu orçamento personalizado!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="geral">
+                    <div class="faq-question">
+                        <h4>📞 Como posso entrar em contato para um orçamento?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Múltiplas formas de <strong>contato rápido</strong>:</p>
+                        <ul>
+                            <li><strong>WhatsApp:</strong> (11) 99999-9999 - Resposta em até 2h</li>
+                            <li><strong>E-mail:</strong> contato@seusite.com - Resposta em até 24h</li>
+                            <li><strong>Formulário do Site:</strong> Seção de contato abaixo</li>
+                            <li><strong>Instagram:</strong> @seuinstagram - DM sempre aberto</li>
+                            <li><strong>LinkedIn:</strong> Perfil profissional para networking</li>
+                        </ul>
+                        <p><strong>Dica:</strong> WhatsApp é o canal mais rápido para orçamentos urgentes!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="geral">
+                    <div class="faq-question">
+                        <h4>🎯 Você trabalha com que tipo de clientes?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Atendo <strong>diversos segmentos</strong> com excelência:</p>
+                        <ul>
+                            <li><strong>Pequenas Empresas:</strong> Startups e negócios locais</li>
+                            <li><strong>Profissionais Liberais:</strong> Médicos, advogados, consultores</li>
+                            <li><strong>E-commerce:</strong> Lojas virtuais de todos os tamanhos</li>
+                            <li><strong>Influenciadores:</strong> Criadores de conteúdo digital</li>
+                            <li><strong>ONGs:</strong> Organizações sem fins lucrativos</li>
+                            <li><strong>Eventos:</strong> Casamentos, formaturas, corporativos</li>
+                        </ul>
+                        <p><strong>Especialidade:</strong> Negócios que querem crescer na internet!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="web">
+                    <div class="faq-question">
+                        <h4>⚡ Você oferece manutenção de sites existentes?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Sim!</strong> Ofereço manutenção completa para sites existentes:</p>
+                        <ul>
+                            <li><strong>Atualizações de Conteúdo:</strong> Textos, imagens, produtos</li>
+                            <li><strong>Correções de Bugs:</strong> Problemas técnicos e funcionais</li>
+                            <li><strong>Otimizações:</strong> Velocidade e performance</li>
+                            <li><strong>Backup e Segurança:</strong> Proteção contra ataques</li>
+                            <li><strong>Atualizações de Sistema:</strong> WordPress, plugins, etc.</li>
+                            <li><strong>Relatórios Mensais:</strong> Status e melhorias implementadas</li>
+                        </ul>
+                        <p><strong>Planos:</strong> A partir de R$ 150/mês com suporte prioritário!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item additional-item" data-category="geral">
+                    <div class="faq-question">
+                        <h4>🏆 Você oferece garantia nos seus trabalhos?</h4>
+                        <div class="question-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Sim, total garantia!</strong> Sua satisfação é minha prioridade:</p>
+                        <ul>
+                            <li><strong>30 dias de garantia:</strong> Correções gratuitas</li>
+                            <li><strong>Satisfação garantida:</strong> Ou seu dinheiro de volta</li>
+                            <li><strong>Suporte técnico:</strong> Resolução rápida de problemas</li>
+                            <li><strong>Retrabalho gratuito:</strong> Se não atender expectativas</li>
+                            <li><strong>Backup dos arquivos:</strong> Segurança por 1 ano</li>
+                            <li><strong>Compromisso com qualidade:</strong> Padrão profissional sempre</li>
+                        </ul>
+                        <p><strong>Confiança:</strong> Mais de 200 clientes satisfeitos podem confirmar!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Final -->
+            <div class="faq-cta">
+                <div class="cta-content">
+                    <h3>Ainda tem dúvidas?</h3>
+                    <p>Entre em contato comigo! Respondo rapidamente e com prazer esclareço qualquer questão sobre meus serviços.</p>
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/5511999999999?text=Olá! Tenho algumas dúvidas sobre seus serviços." class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Falar no WhatsApp</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            <span>Enviar E-mail</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p class="contact-subtitle">Vamos transformar sua ideia em realidade! Estou sempre disponível para novos desafios e projetos incríveis que fazem a diferença.</p>
+                
+                <!-- Estatísticas de Contato -->
+                <div class="contact-stats">
+                    <div class="contact-stat">
+                        <div class="contact-stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 data-target="24">0</h4>
+                        <p>Horas para Resposta</p>
+                    </div>
+                    <div class="contact-stat">
+                        <div class="contact-stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 data-target="150">0</h4>
+                        <p>Clientes Atendidos</p>
+                    </div>
+                    <div class="contact-stat">
+                        <div class="contact-stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 data-target="98">0</h4>
+                        <p>% de Satisfação</p>
+                    </div>
+                    <div class="contact-stat">
+                        <div class="contact-stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4 data-target="200">0</h4>
+                        <p>Projetos Entregues</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-content">
+                <!-- Métodos de Contato -->
+                <div class="contact-methods">
+                    <h3>💬 Escolha a melhor forma de contato</h3>
+                    
+                    <div class="contact-cards">
+                        <div class="contact-card primary">
+                            <div class="card-header">
+                                <div class="method-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="status-indicator">
+                                    <span class="status-dot online"></span>
+                                    <span class="status-text">Online agora</span>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h4>WhatsApp Business</h4>
+                                <p>Resposta mais rápida e direta para seus projetos</p>
+                                <div class="contact-info">
+                                    <span>📱 (11) 96375-5370</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/5511963755370?text=Olá! Gostaria de conversar sobre um projeto." class="contact-btn">
+                                <span>Conversar no WhatsApp</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="card-header">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="status-indicator">
+                                    <span class="status-dot available"></span>
+                                    <span class="status-text">Disponível</span>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h4>E-mail Profissional</h4>
+                                <p>Para propostas detalhadas e documentação</p>
+                                <div class="contact-info">
+                                    <span>📧 Kauedireito490@gmail.com</span>
+                                </div>
+                            </div>
+                            <a href="mailto:Kauedireito490@gmail.com?subject=Proposta de Projeto&body=Olá Kauê! Gostaria de conversar sobre um projeto..." class="contact-btn">
+                                <span>Enviar E-mail</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Status de Disponibilidade -->
+                    <div class="contact-availability">
+                        <div class="availability-status">
+                            <div class="availability-dot"></div>
+                            <span class="availability-text">Disponível para novos projetos</span>
+                        </div>
+                        <div class="availability-info">
+                            <p>🕒 Horário de atendimento: Segunda a Sexta, 9h às 18h</p>
+                            <p>⚡ Resposta em até 2 horas durante horário comercial</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulário de Contato Avançado -->
+                <div class="contact-form-section">
+                    <div class="form-header">
+                        <h3>📝 Ou envie uma mensagem detalhada</h3>
+                        <p>Preencha o formulário abaixo com detalhes do seu projeto e você será redirecionado para meu WhatsApp com as suas informações.</p>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nome">
+                                    <i class="fas fa-user"></i>
+                                    Nome Social
+                                </label>
+                                <input type="text" id="nome" name="nome" placeholder="Como gostaria de ser chamado(a)?" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i>
+                                    E-mail <span style="color: #888; font-size: 0.9em;">(Opcional)</span>
+                                </label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com (opcional)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="indicacao">
+                                    <i class="fas fa-handshake"></i>
+                                    Indicação <span style="color: #888; font-size: 0.9em;">(Opcional)</span>
+                                </label>
+                                <input type="text" id="indicacao" name="indicacao" placeholder="Como chegou até mim? (opcional)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="empresa">
+                                    <i class="fas fa-building"></i>
+                                    Empresa/Organização
+                                </label>
+                                <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa (se aplicável)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="servico">
+                                    <i class="fas fa-cogs"></i>
+                                    Tipo de Serviço *
+                                </label>
+                                <select id="servico" name="servico" required>
+                                    <option value="">Selecione o tipo de serviço</option>
+                                    <option value="landing-page">Landing Page</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="redesign">Redesign de Site</option>
+                                    <option value="manutencao">Manutenção/Suporte</option>
+                                    <option value="website-completo">Website Completo</option>
+                                    <option value="design-grafico">Design Gráfico</option>
+                                    <option value="edicao-videos">Edição de Vídeos</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="orcamento">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    Orçamento Estimado *
+                                </label>
+                                <select id="orcamento" name="orcamento" required>
+                                    <option value="">Selecione a faixa de orçamento</option>
+                                    <option value="ate-1000">Até R$ 1.000</option>
+                                    <option value="1000-3000">R$ 1.000 - R$ 3.000</option>
+                                    <option value="3000-5000">R$ 3.000 - R$ 5.000</option>
+                                    <option value="5000-10000">R$ 5.000 - R$ 10.000</option>
+                                    <option value="acima-10000">Acima de R$ 10.000</option>
+                                    <option value="a-definir">A definir</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="prazo">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Prazo Desejado *
+                                </label>
+                                <select id="prazo" name="prazo" required>
+                                    <option value="">Selecione o prazo</option>
+                                    <option value="urgente">Urgente (até 1 semana)</option>
+                                    <option value="rapido">Rápido (1-2 semanas)</option>
+                                    <option value="normal">Normal (2-4 semanas)</option>
+                                    <option value="flexivel">Flexível (1-2 meses)</option>
+                                    <option value="sem-pressa">Sem pressa (acima de 2 meses)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="prioridade">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Nível de Prioridade *
+                                </label>
+                                <select id="prioridade" name="prioridade" required>
+                                    <option value="">Selecione a prioridade</option>
+                                    <option value="baixa">Baixa - Posso aguardar</option>
+                                    <option value="media">Média - Importante mas não urgente</option>
+                                    <option value="alta">Alta - Preciso em breve</option>
+                                    <option value="critica">Crítica - Extremamente urgente</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="descricao">
+                                    <i class="fas fa-file-alt"></i>
+                                    Descrição do Projeto *
+                                </label>
+                                <textarea 
+                                    id="descricao" 
+                                    name="descricao" 
+                                    placeholder="Descreva seu projeto, objetivos, funcionalidades desejadas, referências, etc. (máximo 500 caracteres)" 
+                                    maxlength="500"
+                                    required
+                                ></textarea>
+                                <div class="char-counter">
+                                    <span id="char-count">0</span>/500 caracteres
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="referencias">
+                                    <i class="fas fa-link"></i>
+                                    Referências/Links
+                                </label>
+                                <textarea id="referencias" name="referencias" placeholder="Sites, designs ou referências que você gosta (opcional)"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <div class="form-privacy">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">
+                                    Concordo com a política de privacidade e autorizo o contato para discussão do projeto
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit">
+                                <span class="btn-text">Enviar Proposta</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- CTA Final -->
+            <div class="contact-cta">
+                <h3>🚀 Pronto para começar seu projeto?</h3>
+                <p>Não perca tempo! Entre em contato agora e receba um orçamento personalizado em até 24 horas. Vamos transformar suas ideias em realidade com qualidade profissional e entrega garantida.</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5511963755370?text=Olá! Vi seu portfólio e gostaria de conversar sobre um projeto urgente." class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Direto</span>
+                    </a>
+                    <a href="mailto:Kauedireito490@gmail.com?subject=Projeto Urgente - Orçamento" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-mail Profissional</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kauê</h3>
+                    <p>Desenvolvedor Web, Designer Gráfico & Editor de Vídeos</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li>Desenvolvimento Front-End</li>
+                        <li>Design Gráfico</li>
+                        <li>Edição de Vídeos</li>
+                        <li>Consultoria Digital</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li>Kauedireito490@gmail.com</li>
+                        <li>(11) 96375-5370</li>
+                        <li>São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Site 100% demonstrativo @KaueZn</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
